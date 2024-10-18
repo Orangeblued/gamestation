@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ball Tapper Game</title>
+    <style>
+        /* Basic styling for the exit button */
+        #exit-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ball Tapper Game</h1>
+    <p></p>
+
+    <!-- Add the Exit button -->
+    <button id="exit-btn" onclick="exitGame()">Exit Game</button>
+
+    <canvas id="ballTapper" width="400" height="400"></canvas>
+    <p>Score: <span id="score">0</span></p>
+    <script>
+      const canvas = document.getElementById("ballTapper");
+      const ctx = canvas.getContext("2d");
+      let score = 0;
+    
+      function drawBall() {
+        const x = Math.random() * 400;
+        const y = Math.random() * 400;
+        ctx.clearRect(0, 0, 400, 400);
+        ctx.beginPath();
+        ctx.arc(x, y, 20, 0, Math.PI * 2);
+        ctx.fillStyle = "red";
+        ctx.fill();
+      }
+    
+      canvas.addEventListener("click", () => {
+        score++;
+        document.getElementById("score").textContent = score;
+      });
+    
+      setInterval(drawBall, 1000);
+    </script>
+    
+    <script>
+        function exitGame() {
+            // Redirect to the Game Station homepage (index.html)
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

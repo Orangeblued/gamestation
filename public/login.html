@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to Game Station</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #ff7e5f, #feb47b); /* Vibrant gradient */
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.8); /* Darker background for contrast */
+            border: 2px solid #ff6f61; /* Bright border color */
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            width: 400px; /* Fixed width */
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #d1fd0c; /* Bright title color */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+        input[type="text"], input[type="password"] {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #ff6f61; /* Bright border for input fields */
+            border-radius: 8px;
+            background-color: #2a2a2a; /* Darker input background */
+            color: #fff;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #feb47b; /* Light focus color */
+            outline: none;
+        }
+        .login-button, .signup-button {
+            background-color: #ff6f61; /* Button background */
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.3s;
+            width: 95%; /* Make button width 95% */
+        }
+        .login-button:hover, .signup-button:hover {
+            background-color: #feb47b; /* Button hover color */
+            transform: scale(1.05);
+        }
+        .login-button:active, .signup-button:active {
+            transform: scale(0.98);
+        }
+        p {
+            color: #fff;
+            margin-top: 20px;
+        }
+        #error-message {
+            display: none; /* Hidden by default */
+            color: #ff4c4c; /* Error message color */
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        .forgot-password {
+            margin-top: 15px;
+            color: #feb47b; /* Forgot password color */
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Game Station</h1>
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required><br>
+            <input type="password" id="password" placeholder="Password" required><br>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+        <p id="error-message">Invalid credentials! Please try again.</p>
+        <p class="forgot-password" onclick="alert('Redirect to password recovery page!')">Forgot Password?</p>
+        <button class="signup-button" onclick="alert('Redirect to signup page!')">Sign Up</button>
+        <div class="footer">
+            <p>© 2024 Game Station. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Simple login check (this can be replaced with actual authentication logic)
+            if (username === "admin" && password === "password123") {
+                window.location.href = "index.html"; // Redirect to home page on successful login
+            } else {
+                document.getElementById('error-message').style.display = 'block'; // Show error message
+            }
+        });
+    </script>
+</body>
+</html>
